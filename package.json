@@ -1,0 +1,63 @@
+{
+  "name": "react-i13n-segment",
+  "description": "Segment plugin for react i13n",
+  "version": "1.0.0",
+  "browser": "index.client.js",
+  "main": "index.server.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adlenafane/react-i13n-segment.git"
+  },
+  "scripts": {
+    "cover": "istanbul cover --dir ${COVERAGE_DIR:-artifacts} -- _mocha tests/unit --require ./tests/setup --recursive --reporter tap",
+    "lint": "jshint",
+    "test": "mocha tests/unit --require ./tests/setup --recursive --reporter spec"
+  },
+  "devDependencies": {
+    "chai": "^2.1.2",
+    "coveralls": "^2.11.1",
+    "istanbul": "^0.3.0",
+    "jsdom": "~9.1.0",
+    "jshint": "^2.5.1",
+    "mocha": "^2.0",
+    "object-assign": "^4.0.1"
+  },
+  "keywords": [
+    "react",
+    "i13n",
+    "instrumentation",
+    "mp",
+    "segment"
+  ],
+  "precommit": [
+    "lint",
+    "test"
+  ],
+  "yhint": {
+    "excludes": [
+      "/dist/",
+      "/tests/"
+    ]
+  },
+  "jshintConfig": {
+    "node": true
+  },
+  "bugs": {
+    "url": "https://github.com/adlenafane/react-i13n-segment/issues"
+  },
+  "homepage": "https://github.com/adlenafane/react-i13n-segment",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "debug": "^2.2.0",
+    "react-i13n": "^2.0.4"
+  },
+  "author": "Adlen Afane <adlenafane@gmail.com>",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ]
+}
