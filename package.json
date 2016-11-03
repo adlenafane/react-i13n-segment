@@ -1,7 +1,7 @@
 {
   "name": "react-i13n-segment",
   "description": "Segment plugin for react i13n",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "browser": "index.client.js",
   "main": "index.server.js",
   "repository": {
