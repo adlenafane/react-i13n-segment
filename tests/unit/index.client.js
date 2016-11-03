@@ -61,4 +61,32 @@ describe('segment plugin client', function () {
         done();
     });
   });
+
+  it('segment will fire page beacon for page change', function (done) {
+    function beaconCallback () {
+      done();
+    }
+    var mockToken = 'foo';
+    global.analytics.load = function (token) {
+      expect(token).to.eql(mockToken);
+    };
+    var reactI13nSegment = new ReactI13nSegment(mockToken);
+
+    global.analytics.page = function (name, properties, options, callback) {
+      expect(name).to.eql('baz');
+      expect(properties.title).to.eql('baz');
+      expect(properties.url).to.eql('/bar');
+      expect(properties.location).to.eql('/foo/foo');
+      expect(options).to.eql({});
+
+      callback && callback();
+    };
+
+    reactI13nSegment.getPlugin().eventHandlers.pageview({
+      location: '/foo/foo',
+      url: '/bar',
+      title: 'baz'
+    }, beaconCallback);
+
+  });
 });
