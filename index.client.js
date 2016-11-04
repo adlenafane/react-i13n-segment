@@ -41,17 +41,14 @@ ReactI13nSegment.prototype.getPlugin = function () {
   return {
     name: 'analytics',
     eventHandlers: {
-      setUsername: function (properties) {
-        analytics.identify(properties.userId);
-      },
-      setSuperProperties: function (properties) {
-        analytics.identify(properties.userId, properties);
-      },
-      setUserProperties: function (properties) {
-        analytics.identify(properties.userId, properties);
-      },
-      setUserPropertiesOnce: function (properties) {
-        analytics.identify(properties.userId, properties);
+      identify: function (properties) {
+        delete properties.i13nNode;
+        delete properties.env;
+
+        analytics.identify(
+          properties.userId,
+          properties
+        );
       },
 
       /**
