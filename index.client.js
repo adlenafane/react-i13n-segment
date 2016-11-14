@@ -76,6 +76,7 @@ ReactI13nSegment.prototype.getPlugin = function () {
             args.page = properties.url
         }
         var name = properties.title || properties.url;
+        delete properties.i13nNode;
 
         analytics.page(name, properties, {}, callback);
       },
